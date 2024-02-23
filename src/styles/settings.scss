@@ -1,0 +1,20 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+ @use 'vuetify/settings' with (
+  $body-font-family: 'Poppins',
+);
+ $primary: #907dd0 !important;
+ $maisie-yellow: #f8edd0;
+
+ @font-face {
+  font-family: 'LilyUPC';
+  src: local("LilyUPC"), url("/fonts/LilyUPC/upclb.ttf") 
+ }
+
+
+
+
+ 
