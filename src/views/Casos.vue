@@ -20,6 +20,14 @@
     <v-row class="mx-auto how-to-help" justify="center">
       <v-col cols="12" align-self="center">
         <v-card-title class="text-h2 text-center my-5"> Casos de adopción </v-card-title>
+        <v-card-subtitle class="text-h3">
+          Nos complace ser testigos de las adopciones exitosas. Deseamos que todos
+          nuestros rescatados tengan el mismo destino. Felicidades queridos michitos.
+          <span><v-icon class="mb-2">mdi-cat</v-icon></span>
+        </v-card-subtitle>
+        <div class="text-center mt-5">
+          <v-btn variant="outlined" class="rounded-xl" size="large">QUIERO ADOPTAR</v-btn>
+        </div>
       </v-col>
     </v-row>
   </div>
@@ -35,12 +43,7 @@
   >
     <v-carousel-item v-for="n in 13" :key="n">
       <template v-slot:default>
-        <v-img
-          height="500"
-          class="case"
-          cover
-          :src="`/src/assets/images/adopcion/${n + 1}.jpg`"
-        ></v-img>
+        <v-img height="500" class="case" cover :src="getImage(n)"></v-img>
       </template>
     </v-carousel-item>
   </v-carousel>
@@ -155,6 +158,10 @@
 import { useDisplay } from "vuetify";
 
 const { mobile } = useDisplay();
+
+function getImage(index) {
+  return new URL(`/src/assets/images/adopcion/${index + 1}.jpg`, import.meta.url).href;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -175,10 +182,11 @@ const { mobile } = useDisplay();
 .area {
   width: 100%;
   height: 500px;
-  background-color: #4159d01f;
-  background-image: linear-gradient(43deg, #4159d034 0%, #c850c0 46%, #ffcd705b 100%);
+  background-color: #4159d06a;
+  background: linear-gradient(45deg, #907dd0e8 0%, #4c2bb87e 100%) !important;
   position: absolute;
   top: 64px;
+  opacity: 1;
 }
 .circles {
   position: absolute;
@@ -305,5 +313,19 @@ const { mobile } = useDisplay();
     font-size: 2rem !important;
     line-height: 1rem !important;
   }
+}
+.text-h3 {
+  font-size: 1.7rem !important;
+  text-overflow: unset !important;
+  white-space: normal !important;
+  text-align: center;
+  @media only screen and (max-width: 600px) {
+    font-size: 1.2rem !important;
+    line-height: 2rem !important;
+  }
+}
+
+.v-carousel__controls__item .v-icon {
+  color: #4159d0 !important;
 }
 </style>

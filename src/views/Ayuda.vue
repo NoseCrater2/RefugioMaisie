@@ -23,8 +23,6 @@
       </v-col>
     </v-row>
   </div>
-
-  <v-card variant="flat"> </v-card>
   <v-row style="max-width: 1200px" class="mx-auto py-8" justify="center">
     <v-col cols="12" sm="12" md="4" v-for="(item, index) in items" :key="index">
       <v-card variant="flat" height="400" width="300" class="upper-card mx-auto">
@@ -37,6 +35,11 @@
         <v-card-text class="text-center">
           {{ item.subtitle }}
         </v-card-text>
+        <!-- <v-card-actions style="position: absolute; top: 160px; right: 120px">
+          <v-spacer></v-spacer>
+          <v-btn icon="mdi-plus" variant="elevated" size="50" color="white"></v-btn>
+          <v-spacer></v-spacer>
+        </v-card-actions> -->
       </v-card>
     </v-col>
   </v-row>
@@ -46,37 +49,37 @@ export default {
   data: () => ({
     items: [
       {
-        image: "src/assets/images/toys-and-beds.png",
+        image: new URL("/src/assets/images/toys-and-beds.png", import.meta.url).href,
         title: "Juguetes y camitas",
         subtitle:
           "Puedes donar juguetes, camitas, torres e implementos relacionados para hacer más cómoda la vida de los gatitos en el refugio. Te lo agradecerán mucho.",
       },
       {
-        image: "src/assets/images/donate.png",
+        image: new URL("/src/assets/images/donate.png", import.meta.url).href,
         title: "Donativos monetarios",
         subtitle:
           "Apadrina un michi de forma mensual desde un monto mínimo o colabora para la compra de comida, arena y otros implementos.",
       },
       {
-        image: "src/assets/images/food.png",
+        image: new URL("/src/assets/images/food.png", import.meta.url).href,
         title: "Comida y medicamentos",
         subtitle:
           "Día a día se agotan nuestros recursos, tú puedes ayudarnos a alimentar y tratar a nuestros más de 80 gatos beneficiados. ",
       },
       {
-        image: "src/assets/images/no-reproduction.png",
+        image: new URL("/src/assets/images/no-reproduction.png", import.meta.url).href,
         title: "Evita que haya más gatitos en la calle",
         subtitle:
           "Puedes apadrinar esterilizaciones para reducir la sobrepoblación y sufrimiento de los gatitos callejeros.",
       },
       {
-        image: "src/assets/images/partner.png",
+        image: new URL("/src/assets/images/partner.png", import.meta.url).href,
         title: "Voluntariado",
         subtitle:
           "Requerimos de ayuda para la limpieza del refugio, manejar nuestras redes sociales, ir a ferias de adopción, realizar fotografía, video, y para liderar nuestras campañas de concientización.",
       },
       {
-        image: "src/assets/images/share.png",
+        image: new URL("/src/assets/images/share.png", import.meta.url).href,
         title: "Compartir",
         subtitle:
           "Pasa la voz a tus amigos, familiares y conocidos para que conozcan más de nuestras iniciativas. Mientras más se unan, más posibilidades tendremos de alcanzar nuestros objetivos de ayuda a los gatos.",
@@ -87,6 +90,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.first-title {
+  white-space: normal !important;
+  word-break: auto-phrase !important;
+}
 .upper-card {
   border-radius: 30px !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
@@ -99,15 +106,10 @@ export default {
   overflow: visible !important;
   background: linear-gradient(45deg, #fcf1cfb4 0%, #fffcf2d3 100%) !important;
 }
-.absolute-image {
-  position: absolute !important;
-  z-index: 1 !important;
-  margin-left: 10px;
-  transform: scale(1.2);
-}
+
 .card-background {
   border-radius: 30px 30px 0 0 !important;
-  background: linear-gradient(135deg, #f5cbff 0%, #c346c2 100%) !important;
+  background: linear-gradient(45deg, #907dd0e3 0%, #4c2bb894 100%) !important;
   height: 50%;
   width: 100%;
   position: relative;
@@ -126,7 +128,7 @@ export default {
   width: 100%;
   height: 500px;
   background-color: #4159d01f;
-  background-image: linear-gradient(43deg, #4159d034 0%, #c850c0 46%, #ffcd705b 100%);
+  background: linear-gradient(45deg, #907dd0e3 0%, #4c2bb894 100%) !important;
   position: absolute;
   top: 64px;
 }

@@ -6,39 +6,43 @@
       class="mx-auto"
       style="max-width: 1200px; z-index: 2"
     >
-      <v-col cols="12" sm="12" md="4" lg="4" class="mt-4">
+      <v-col cols="12" sm="12" md="4" lg="4" class="mx-auto mt-4 text-center">
         <v-btn
           v-for="icon in icons"
+          class="mx-3"
           :key="icon"
-          class="mx-1 d-inline-block"
           color="white"
+          variant="outlined"
           :icon="icon.icon"
-          variant="text"
           :href="icon.link"
           target="_blank"
         ></v-btn>
       </v-col>
       <v-col cols="12" sm="12" md="4" lg="4">
         <v-list
+          class="text-center"
           variant="compact"
           base-color="white"
           bg-color="transparent"
           color="white"
-          :items="items"
-          item-title="name"
-          item-value="id"
-        ></v-list>
+        >
+          <v-list-item v-for="item in items" :key="item.id" :to="item.to">
+            {{ item.name }}
+          </v-list-item>
+        </v-list>
       </v-col>
       <v-col cols="12" sm="12" md="4" lg="4">
         <v-list
+          class="text-center"
           variant="compact"
-          base-color="white"
-          bg-color="transparent"
           color="white"
-          :items="options"
-          item-title="name"
-          item-value="id"
-        ></v-list>
+          bg-color="transparent"
+          base-color="white"
+        >
+          <v-list-item v-for="option in options" :key="option.id">
+            {{ option.name }}
+          </v-list-item>
+        </v-list>
       </v-col>
     </v-row>
     <div class="area">
@@ -74,19 +78,17 @@ export default {
           icon: "mdi-whatsapp",
           link: "https://api.whatsapp.com/send?phone=51997206689",
         },
-        {
-          icon: "mdi-gmail",
-          link: "mailto:anarqueabrn@gmial.com",
-        },
       ],
       items: [
         {
           name: "Adopciones",
           id: 1,
+          to: "casos",
         },
         {
           name: "¿Cómo ayudar?",
           id: 2,
+          to: "ayuda",
         },
       ],
       options: [
@@ -113,17 +115,13 @@ export default {
 </script>
 <style scoped>
 .glass-footer {
-  /* background: linear-gradient(135deg, #F5CBFF 0%, #C346C2 100%) !important; */
-  /* border: 1px solid rgba(255, 255, 255, 0.05); */
-  /* box-sizing: border-box; */
   backdrop-filter: blur(15px);
-  /* border-radius: 6px; */
 }
 .area {
   width: 100%;
   height: 100%;
   background-color: #4159d01f;
-  background-image: linear-gradient(43deg, #4159d034 0%, #c850c0 46%, #ffcd705b 100%);
+  background: linear-gradient(45deg, #907dd0e3 0%, #4c2bb894 100%) !important;
   position: absolute !important;
   bottom: 0;
   left: 0;
